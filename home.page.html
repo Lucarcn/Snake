@@ -1,0 +1,31 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Calculator
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+
+<ion-item>
+  <ion-label class="value">
+{{val}}
+  </ion-label>
+</ion-item>
+
+
+
+<div *ngFor="let numg of numgs">  
+  <ion-button  *ngFor="let num of numg" (click)="onpress(num)" class="calcb" shape="round">{{num}}</ion-button>
+
+</div>
+
+
+
+
+
+
+
+</ion-content>
