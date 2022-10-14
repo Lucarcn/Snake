@@ -1,1 +1,90 @@
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-home',
+  templateUrl: 'home.page.html',
+  styleUrls: ['home.page.scss'],
+})
+export class HomePage {
+ans = null;
+base = null;
+height = null;
+
+press(){
+
+  var a = this.base*this.height/2;
+  this.ans = a;
+}
+
+}
+
+
+TS
+
+
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Triangle
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Triangle</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="container">
+    <ion-text color = "danger">
+    <strong>TRIANGLE</strong>
+    </ion-text>
+    <br>
+    <ion-text color = "dark">
+      <strong>CALCULATOR</strong>
+    </ion-text>
+    <br>
+    <br> BASE 
+    <ion-input placeholder = "ENTER BASE" type = "number" (ionChange) = "calculate()" [(ngModel)] = "base"></ion-input>
+    <br>
+    <br> HEIGHT
+    <ion-input placeholder="ENTER HEIGHT" type = "number" (ionChange) = "calculate()" [(ngModel)] = "height"></ion-input>
+    <br>
+    <b></b> {{ ans }}
+    <br>
+    <br>
+    <br>
+    <ion-button (click) = "press()" shape = "round" fill = "outline" color = "danger" id = "C">CALCULATE</ion-button>
+    
+
+
+  </div>
+</ion-content>
+
+
+HTML
+
+
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { RouteReuseStrategy } from '@angular/router';
+
+import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
+
+import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
+import { FormsModule } from '@angular/forms';
+
+@NgModule({
+  declarations: [AppComponent],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, FormsModule],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  bootstrap: [AppComponent],
+})
+export class AppModule {}
+
+
+app module
 
